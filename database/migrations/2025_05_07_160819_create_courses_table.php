@@ -13,11 +13,12 @@ return new class extends Migration
     {
         Schema::create('courses', function (Blueprint $table) {
             $table->id();
-            $table->string('name_course')->unique();
-            $table->string('description_course')->nullable();
+            $table->string('name_course')->nullable();
+            $table->text('description_course')->nullable();
             $table->string('image_course')->nullable();
             $table->string('video_course')->nullable();
-            $table->decimal('price_course',8,2)->nullable();
+            $table->integer('price_course')->nullable();
+            // $table->foreignId('category_id')->constrained()->onDelete('cascade');
             $table->softDeletes(); 
             $table->timestamps();
         });

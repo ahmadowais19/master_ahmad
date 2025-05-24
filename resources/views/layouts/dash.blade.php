@@ -504,7 +504,7 @@
 
 @endsection
 
-
+{{-- 
 @section('content4')
 
 <div class="content-wrapper">
@@ -512,7 +512,7 @@
         <div class="col-md-8 grid-margin stretch-card">
             <div class="card">
                 <div class="card-body">
-                    <h4 class="card-title">Add new coursee</h4>
+                    <h4 class="card-title">Add new course</h4>
                     <form class="forms-sample" method="POST" action="{{ route('course.store') }}">
                         @csrf
                         <div class="form-group">
@@ -537,10 +537,11 @@
                         </div>
                         <button type="submit" class="btn btn-primary mr-2">Save</button>
                         <a href="{{ route('course.index') }}" class="btn btn-light">cancel</a>
+                        <a href="{{ route('course.store') }}" class="btn btn-light">Added</a>
                     </form>
                 </div>
             </div>
         </div>
     </div>
 </div>
-@endsection
+@endsection --}}

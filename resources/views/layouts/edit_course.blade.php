@@ -1,57 +1,118 @@
 {{-- @extends('index_dash') --}}
 
-
-
 {{-- @section('content6') --}}
-<div class="container mt-5">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card shadow-sm">
-                <div class="card-body">
-                    <h4 class="card-title mb-4">تعديل الكورس</h4>
+<style>
+    .card {
+        border-radius: 1rem;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+        border: none;
+        background-color: #ffffff;
+        transition: all 0.3s ease-in-out;
+    }
 
-                    <form action="{{ route('course.update', $course->id) }}" method="POST">
-                        @csrf
-                        @method('PUT')
+    .card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 25px rgba(0, 0, 0, 0.1);
+    }
 
-                        <div class="mb-3">
-                            <label for="name_course" class="form-label">اسم الكورس</label>
-                            <input type="text" name="name_course" id="name_course" class="form-control" 
-                                   value="{{ old('name_course', $course->name_course) }}" required>
-                        </div>
+    .card-title {
+        font-weight: 600;
+        color: #2d3748;
+    }
 
-                        <div class="mb-3">
-                            <label for="description_course" class="form-label">وصف الكورس</label>
-                            <textarea name="description_course" id="description_course" class="form-control">{{ old('description_course', $course->description_course) }}</textarea>
-                        </div>
+    .form-label {
+        font-weight: 500;
+        color: #4a5568;
+    }
 
-                        <div class="mb-3">
-                            <label for="image_course" class="form-label">رابط صورة الكورس</label>
-                            <input type="text" name="image_course" id="image_course" class="form-control" 
-                                   value="{{ old('image_course', $course->image_course) }}">
-                        </div>
+    .form-control {
+        border-radius: 0.5rem;
+        border: 1px solid #e2e8f0;
+        transition: border-color 0.2s;
+    }
 
-                        <div class="mb-3">
-                            <label for="video_course" class="form-label">رابط فيديو الكورس</label>
-                            <input type="text" name="video_course" id="video_course" class="form-control" 
-                                   value="{{ old('video_course', $course->video_course) }}">
-                        </div>
+    .form-control:focus {
+        border-color: #5e72e4;
+        box-shadow: 0 0 0 0.2rem rgba(94, 114, 228, 0.25);
+    }
 
-                        <div class="mb-3">
-                            <label for="price_course" class="form-label">سعر الكورس</label>
-                            <input type="number" name="price_course" id="price_course" step="0.01" class="form-control" 
-                                   value="{{ old('price_course', $course->price_course) }}">
-                        </div>
+    .btn-primary {
+        background-color: #5e72e4;
+        border-color: #5e72e4;
+        border-radius: 0.5rem;
+        font-weight: 500;
+    }
 
-                        <div class="d-flex justify-content-between">
-                            <button type="submit" class="btn btn-primary">تحديث الكورس</button>
-                            <a href="{{ route('course.index') }}" class="btn btn-secondary">رجوع</a>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
+    .btn-primary:hover {
+        background-color: #324cdd;
+        border-color: #324cdd;
+    }
+
+    .btn-secondary {
+        background-color: #adb5bd;
+        border-color: #adb5bd;
+        border-radius: 0.5rem;
+        font-weight: 500;
+    }
+
+    .btn-secondary:hover {
+        background-color: #6c757d;
+        border-color: #6c757d;
+    }
+
+    .mb-3 label {
+        margin-bottom: 0.3rem;
+    }
+
+    .d-flex.justify-content-between {
+        gap: 1rem;
+        flex-wrap: wrap;
+    }
+</style>
+
+<form action="{{ route('category.update', $category->id) }}" method="POST">
+    @csrf
+    @method('PUT')
+
+    <div class="mb-3">
+        <label for="name" class="form-label">اسم التصنيف</label>
+        <input type="text" name="name" id="name" class="form-control"
+               value="{{ old('name', $category->name) }}" required>
     </div>
-</div>
+
+    <div class="mb-3">
+        <label for="description" class="form-label">وصف التصنيف</label>
+        <textarea name="description" id="description" class="form-control">{{ old('description', $category->description) }}</textarea>
+    </div>
+
+    <div class="d-flex justify-content-between">
+        <button type="submit" class="btn btn-primary">تحديث</button>
+        <a href="{{ route('Added_course') }}" class="btn btn-secondary">رجوع</a>
+    </div>
+</form>
+
+
 
 {{-- @endsection --}}
+
+
+
+
+
+     {{-- <div class="mb-3">
+                            <label for="image" class="form-label">رابط صورة الكورس</label>
+                            <input type="text" name="image" id="" class="form-control" 
+                                   value="{{ old('image', $course->image) }}">
+                        </div> --}}
+{{-- 
+                        <div class="mb-3">
+                            <label for="video" class="form-label">رابط فيديو الكورس</label>
+                            <input type="text" name="video" id="video" class="form-control" 
+                                   value="{{ old('video', $category->video_) }}">
+                        </div> --}}
+
+                        {{-- <div class="mb-3">
+                            <label for="price_course" class="form-label">سعر الكورس</label>
+                            <input type="number" name="price" id="price" step="0.01" class="form-control" 
+                                   value="{{ old('price', $category->price) }}">
+                        </div> --}}

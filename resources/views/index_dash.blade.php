@@ -32,6 +32,13 @@
 
     @yield('content6')
 
+    @yield('content7')
+
+    @yield('content8')
+    
+    @yield('content9')
+
+
 
      
      @include('include.footer_dash')

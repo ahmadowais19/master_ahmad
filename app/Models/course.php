@@ -2,12 +2,14 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class course extends Model
+class Course extends Model
 {
-    use HasFactory;
+    use HasFactory, SoftDeletes;
+
     protected $fillable = [
         'name_course',
         'description_course',
@@ -15,6 +17,17 @@ class course extends Model
         'video_course',
         'price_course',
     ];
-    // use SoftDeletes;
-    // protected $dates = ['deleted_at'];
+
+    protected $dates = ['deleted_at'];
+
+    public function category()
+    {
+        return $this->belongsTo(Category::class, 'category_id');
+    }
+
+    public function videos()
+    {
+        return $this->hasMany(\App\Models\Video::class);
+    }
 }
+

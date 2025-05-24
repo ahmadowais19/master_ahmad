@@ -17,9 +17,11 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-dark" href="../pages/tables.html">
+          <a class="nav-link text-dark" href="{{ route('category.create') }}">
             <i class="material-symbols-rounded opacity-5">table_view</i>
-            <span class="nav-link-text ms-1">add course</span>
+            <span class="nav-link-text ms-1">add category
+
+            </span>
           </a>
         </li>
         <li class="nav-item">
@@ -62,10 +64,16 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-dark" href="../pages/sign-up.html">
-            <i class="material-symbols-rounded opacity-5">assignment</i>
-            <span class="nav-link-text ms-1">Sign Up</span>
-          </a>
+          <a class="nav-link text-dark" href="{{ route('logout') }}" 
+          onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+         <i class="material-symbols-rounded opacity-5">assignment</i>
+         <span class="nav-link-text ms-1">logout</span>
+       </a>
+       
+       <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+           @csrf
+       </form>
+       
         </li>
       </ul>
     </div>
